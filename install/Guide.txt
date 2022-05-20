@@ -1,0 +1,2 @@
+Install Fonts from LemonMilk Font
+Install Snaz at C:\Snaz. (Should be the default anyway) and edit Snaz like in snaz.png file
