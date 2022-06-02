@@ -50,38 +50,35 @@ def download(url: str, dest_folder: str):
 
 def override_where():
     """ overrides certifi.core.where to return actual location of cacert.pem"""
-
     return os.path.abspath("cacert.pem")
 
 
 if hasattr(sys, "frozen"):
     import certifi.core
-
     os.environ["REQUESTS_CA_BUNDLE"] = override_where()
     certifi.core.where = override_where
-
     import requests.utils
     import requests.adapters
-
     requests.utils.DEFAULT_CA_BUNDLE_PATH = override_where()
     requests.adapters.DEFAULT_CA_BUNDLE_PATH = override_where()
-url = "https://iosoccer.com:44380/api/match"
+
+url_match = "https://iosoccer.com:44380/api/match"
 headers = CaseInsensitiveDict()
 headers["Content-Type"] = "application/json"
-url3 = "https://iosoccer.com:44380/api/tournaments/"
-resp3 = requests.get(url3, headers=headers)
-if resp3.status_code == 200:
-    json_array3 = resp3.text
-    parsed3 = json.loads(json_array3)
-    for i in range(len(parsed3)):
-        if int(parsed3[i]['id']) > 30:
-            print(parsed3[i]['id'], "|", parsed3[i]['name'])
+url_tournaments = "https://iosoccer.com:44380/api/tournaments/"
+resp_tournaments = requests.get(url_tournaments, headers=headers)
+if resp_tournaments.status_code == 200:
+    json_array_tournaments = resp_tournaments.text
+    parsed_tournaments = json.loads(json_array_tournaments)
+    for i in range(len(parsed_tournaments)):
+        if parsed_tournaments[i]['tournamentSeries']['isActive']:
+            print(parsed_tournaments[i]['id'], "|", parsed_tournaments[i]['name'])
 path_py = os.path.abspath("")
 path_general = path_py[:-7]
 if path_py != "C:\Streamer kit\python":
     print("Your Streamer kit isn't located in C:\Streamer kit, please change it!")
 tournament_id = int(input("Enter the id of the tournament: "))
-url2 = "https://iosoccer.com:44380/api/tournaments/" + str(tournament_id) + "/current-phase"
+url_current_tournament = "https://iosoccer.com:44380/api/tournaments/" + str(tournament_id) + "/current-phase"
 data = """
 {
   "page": '1',
@@ -99,18 +96,19 @@ data = """
 }
 """
 data = data.replace('variable', str(tournament_id))
-resp = requests.post(url, headers=headers, data=data)
+resp = requests.post(url_match, headers=headers, data=data)
 json_array = resp.text
 parsed = json.loads(json_array)
-resp2 = requests.get(url2, headers=headers)
+resp_current_tournament = requests.get(url_current_tournament, headers=headers)
 
-if resp2.status_code == 200:
-    json_array2 = resp2.text
-    parsed2 = json.loads(json_array2)
-    matchweek_nr = parsed2["name"]
+if resp_current_tournament.status_code == 200:
+    json_array_current_tournament = resp_current_tournament.text
+    parsed_current_tournament = json.loads(json_array_current_tournament)
+    matchweek_nr = parsed_current_tournament["name"]
     matchweek_nr = matchweek_nr.replace("Round", "Matchweek")
 else:
     matchweek_nr = ""
+#Open Files
 home_team_name = open(path_py + "/TeamHome.txt", "w")
 away_team_name = open(path_py + "/TeamAway.txt", "w")
 tournament_name = open(path_py + "/tournamentName.txt", "w")
@@ -132,9 +130,7 @@ for i in range(n):
         day = match['kickOff'][8:10]
         month = match['kickOff'][5:7]
         minute = match['kickOff'][14:-4]
-        # print(i, "|", teamHomeName, "-", teamAwayName, "| Date: ",kickOff_day + "." + kickOff_month, "| Time:",str(hour) + ":" + kickOff_hour, "(GMT+1)", "|")
-        print('{} | {} - {} | Date: {}.{} | Time: {}:{} (GMT+1) |'
-              .format(i, teamHomeName, teamAwayName, day, month, hour, minute))
+        print('{} | {} - {} | Date: {}.{} | Time: {}:{} (GMT+1) |'.format(i, teamHomeName, teamAwayName, day, month, hour, minute))
 if x > 0:
     choice = int(input("Type the number of the match: "))
     tab = parsed["items"][choice]
