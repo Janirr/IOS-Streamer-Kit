@@ -82,10 +82,9 @@ if resp_tournaments.status_code == 200:
     # Full list of tournaments
     parsed_tournaments = json.loads(resp_tournaments.text)
     for tournaments in parsed_tournaments:
-        for tournament in tournaments['tournamentSeries']['tournaments']:
-            # Go by each tournament and check if its still active
-            if tournament['hasStarted'] and not tournament['hasEnded']:
-                print(tournament['id'], "|", tournament['name'])
+        if not tournaments['hasEnded']:
+            print(tournaments['id'], "|", tournaments['name'])
+
 # User has to write the id of the tournament that he is interested in
 tournament_id = input("Enter the id of the tournament: ")
 # url_tournament will include the tournament_id specified by the user
@@ -93,7 +92,7 @@ url_tournament = "https://iosoccer.com:44380/api/tournaments/" + tournament_id +
 data_match = """
 {
   "page": '1',
-  "pageSize": '10',
+  "pageSize": '8',
   "filters": {
     "timePeriod": '0',
     "includeUpcoming": 'true',
@@ -134,7 +133,7 @@ fixtures = open(path_py + "/fixtures.txt", "w")
 standings = open(path_py + "/standings.txt", "w")
 
 NumberOfMatches = 0
-for i in range(min(8, len(parsed_api_match["items"]))):
+for i in range(len(parsed_api_match["items"])):
     match = parsed_api_match["items"][i]
     if match['teamAway'] and match['teamHome'] and match['kickOff']:
         NumberOfMatches += 1
@@ -145,8 +144,9 @@ for i in range(min(8, len(parsed_api_match["items"]))):
         hour = str(int(match['kickOff'][11:13]) + 1)  # Change the hour to GMT +1
         minutes = match['kickOff'][14:-4]  # to see if it starts at :00 or :30.
         print(
-            '{} | {} - {} | Date: {}.{} | Time: {}:{} (GMT+1) |'.format(i, teamHomeName, teamAwayName, day, month, hour,
-                                                                        minutes))
+            '{} | {} - {} | Date: {}.{} | Time: {}:{} (GMT+1)'
+            .format(i, teamHomeName, teamAwayName, day, month, hour, minutes)
+        )
 if NumberOfMatches > 0:
     choice = int(input("Type the number of the match: "))
     match = parsed_api_match["items"][choice]
@@ -206,7 +206,7 @@ if NumberOfMatches > 0:
     # Resize Image Away into 256x256px
     im2 = get_resized_img(destination_away, size)
     im2.save(path_general + '/teams/' + 'teamAway.png')
-    # Open the stream manager to change the tile of the stream
+    # Open the stream manager to change the title of the stream
     url = 'https://dashboard.twitch.tv/u/iosoccer/stream-manager'
     webbrowser.open(url)
 else:

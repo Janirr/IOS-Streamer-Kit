@@ -6,14 +6,27 @@
       <change beforePath="$PROJECT_DIR$/Head_to_Head_link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Head_to_Head_link.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamAway.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TeamAway.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamHome.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TeamHome.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigtournamentName.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bigtournamentName.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixtures.txt" beforeDir="false" afterPath="$PROJECT_DIR$/fixtures.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.exe" beforeDir="false" afterPath="$PROJECT_DIR$/main.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matchweek.txt" beforeDir="false" afterPath="$PROJECT_DIR$/matchweek.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/standings.txt" beforeDir="false" afterPath="$PROJECT_DIR$/standings.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tournamentName.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tournamentName.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../teams/teamAway.png" beforeDir="false" afterPath="$PROJECT_DIR$/../teams/teamAway.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../teams/teamHome.png" beforeDir="false" afterPath="$PROJECT_DIR$/../teams/teamHome.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -26,6 +39,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/VENV" />
@@ -36,7 +50,7 @@
       <recent name="C:\Streamer kit\python" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -58,9 +72,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="title" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/title.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.title" />
       </list>
     </recent_temporary>
   </component>
@@ -89,30 +125,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="614" y="109" width="1065" height="822" key="CommitChangelistDialog2/0.0.1920.1040/1920.1.1920.1040@0.0.1920.1040" timestamp="1654196217582" />
-    <state x="2659" y="263" key="FileChooserDialogImpl" timestamp="1650534391341">
-      <screen x="1920" y="1" width="1920" height="1040" />
-    </state>
-    <state x="2659" y="263" key="FileChooserDialogImpl/0.0.1920.1040/1920.1.1920.1040@1920.1.1920.1040" timestamp="1650534391341" />
-    <state width="1899" height="286" key="GridCell.Tab.0.bottom" timestamp="1655289543569">
+    <state width="1899" height="286" key="GridCell.Tab.0.bottom" timestamp="1662319089380">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.1.1920.1040@0.0.1920.1040" timestamp="1655289543569" />
-    <state width="1899" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.1.1920.1040@1920.1.1920.1040" timestamp="1654195829700" />
-    <state width="1899" height="286" key="GridCell.Tab.0.center" timestamp="1655289543569">
+    <state width="1899" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.1.1920.1040@0.0.1920.1040" timestamp="1662319089380" />
+    <state width="1899" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.1.1920.1040@0.0.1920.1040" timestamp="1655922721756" />
+    <state width="1899" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.1.1920.1040@1920.1.1920.1040" timestamp="1655552466056" />
+    <state width="1899" height="286" key="GridCell.Tab.0.center" timestamp="1662319089380">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="286" key="GridCell.Tab.0.center/0.0.1920.1040/1920.1.1920.1040@0.0.1920.1040" timestamp="1655289543569" />
-    <state width="1899" height="286" key="GridCell.Tab.0.center/0.0.1920.1040/1920.1.1920.1040@1920.1.1920.1040" timestamp="1654195829700" />
-    <state width="1899" height="286" key="GridCell.Tab.0.left" timestamp="1655289543569">
+    <state width="1899" height="286" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.1.1920.1040@0.0.1920.1040" timestamp="1662319089380" />
+    <state width="1899" height="286" key="GridCell.Tab.0.center/0.0.1920.1040/1920.1.1920.1040@0.0.1920.1040" timestamp="1655922721755" />
+    <state width="1899" height="286" key="GridCell.Tab.0.center/0.0.1920.1040/1920.1.1920.1040@1920.1.1920.1040" timestamp="1655552466056" />
+    <state width="1899" height="286" key="GridCell.Tab.0.left" timestamp="1662319089380">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="286" key="GridCell.Tab.0.left/0.0.1920.1040/1920.1.1920.1040@0.0.1920.1040" timestamp="1655289543569" />
-    <state width="1899" height="286" key="GridCell.Tab.0.left/0.0.1920.1040/1920.1.1920.1040@1920.1.1920.1040" timestamp="1654195829699" />
-    <state width="1899" height="286" key="GridCell.Tab.0.right" timestamp="1655289543569">
+    <state width="1899" height="286" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.1.1920.1040@0.0.1920.1040" timestamp="1662319089380" />
+    <state width="1899" height="286" key="GridCell.Tab.0.left/0.0.1920.1040/1920.1.1920.1040@0.0.1920.1040" timestamp="1655922721755" />
+    <state width="1899" height="286" key="GridCell.Tab.0.left/0.0.1920.1040/1920.1.1920.1040@1920.1.1920.1040" timestamp="1655552466056" />
+    <state width="1899" height="286" key="GridCell.Tab.0.right" timestamp="1662319089380">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="286" key="GridCell.Tab.0.right/0.0.1920.1040/1920.1.1920.1040@0.0.1920.1040" timestamp="1655289543569" />
-    <state width="1899" height="286" key="GridCell.Tab.0.right/0.0.1920.1040/1920.1.1920.1040@1920.1.1920.1040" timestamp="1654195829700" />
+    <state width="1899" height="286" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.1.1920.1040@0.0.1920.1040" timestamp="1662319089380" />
+    <state width="1899" height="286" key="GridCell.Tab.0.right/0.0.1920.1040/1920.1.1920.1040@0.0.1920.1040" timestamp="1655922721755" />
+    <state width="1899" height="286" key="GridCell.Tab.0.right/0.0.1920.1040/1920.1.1920.1040@1920.1.1920.1040" timestamp="1655552466056" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1654196480794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
