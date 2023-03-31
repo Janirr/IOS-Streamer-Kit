@@ -41,12 +41,12 @@ def get_match(tournament_id):
     return parsed_match
 
 
-def connect_to_rest_api():
+def connect_to_rest_api(tournament_id):
     get_tournaments()
-    tournament_id = input("Enter the id of the tournament: ")
     url_tournament = f"{API_BASE_URL}tournaments/{tournament_id}/current-phase"
     parsed_api_match = get_match(tournament_id)
     return tournament_id, url_tournament, parsed_api_match
+
 
 
 def headers():

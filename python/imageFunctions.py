@@ -18,11 +18,26 @@ def download(url: str, dest_folder: str) -> str:
     return file_path
 
 
-def resize_image(img_path: str, size: Tuple[int, int]) -> Image:
-    """Resize an image to fit the specified size."""
-    with Image.open(img_path) as img:
-        img.thumbnail(size, Image.LANCZOS)
-        return img
+def get_resized_img(img_path, video_size):
+    img = Image.open(img_path)
+    width, height = video_size  # these are the MAX dimensions
+    scale = width / height
+    img_ratio = img.size[0] / img.size[1]
+    if scale >= 1:
+        if img_ratio <= scale:  # image is not wide enough
+            width_new = int(height * img_ratio)
+            size_new = width_new, height
+        else:  # image is wider than video
+            height_new = int(width / img_ratio)
+            size_new = width, height_new
+    else:
+        if img_ratio >= scale:  # image is not tall enough
+            height_new = int(width / img_ratio)
+            size_new = width, height_new
+        else:  # image is taller than video
+            width_new = int(height * img_ratio)
+            size_new = width_new, height
+    return img.resize(size_new, resample=Image.LANCZOS)
 
 
 def download_logos(match_json):
@@ -31,12 +46,24 @@ def download_logos(match_json):
     logo_home = match_json["teamHome"]['badgeImage']['mediumUrl']
     logo_away = match_json["teamAway"]['badgeImage']['mediumUrl']
     # Path where to put the files
-    destination_home = os.path.join(path_general, "teams", "teamHome.png")
-    destination_away = os.path.join(path_general, "teams", "teamAway.png")
-    # Download them from their URL and place them in the C:/Streamer kit/teams
-    download(logo_home, os.path.join(path_general, "teams"))
-    download(logo_away, os.path.join(path_general, "teams"))
+    destination_home = path_general + "/teams/teamHome.png"
+    destination_away = path_general + "/teams/teamAway.png"
+    # Download them from their url and place them in the C:/Streamer kit/teams
+    download(logo_home, "C:/Streamer kit/teams")
+    download(logo_away, "C:/Streamer kit/teams")
+    # Get name of the files by looking at the destination starting from the right
+    home_logo_name = logo_home.split("/")[-1]
+    away_logo_name = logo_away.split("/")[-1]
+    # Full path to the downloaded logos (example: C:/Streamer kit/teams/1656.png)
+    src_home = path_general + "/teams/" + home_logo_name
+    src_away = path_general + "/teams/" + away_logo_name
+    # Copy the file with different names: TeamHome.png and TeamAway.png
+    shutil.copyfile(src_home, destination_home)
+    shutil.copyfile(src_away, destination_away)
     # Resize Image Home into 256x256px
-    resize_image(destination_home, (256, 256)).save(destination_home)
+    size = 256, 256
+    im = get_resized_img(destination_home, size)
+    im.save(path_general + '/teams/' + 'teamHome.png')
     # Resize Image Away into 256x256px
-    resize_image(destination_away, (256, 256)).save(destination_away)
+    im2 = get_resized_img(destination_away, size)
+    im2.save(path_general + '/teams/' + 'teamAway.png')

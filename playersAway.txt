@@ -1,0 +1,8 @@
+GK:Dzeko1
+LB:Jerry
+CB:Aryan
+RB:Draexxsau
+CM:Kobe
+LW:Janir
+CF:Draggy
+RW:Nuri
