@@ -27,7 +27,7 @@ def get_match(tournament_id):
         "filters": {
             "timePeriod": 0,
             "includeUpcoming": True,
-            "includePast": True,
+            "includePast": False,
             "includeUnpublished": False,
             "includePlaceholders": True,
             "tournamentId": tournament_id,
@@ -42,7 +42,6 @@ def get_match(tournament_id):
 
 
 def connect_to_rest_api(tournament_id):
-    get_tournaments()
     url_tournament = f"{API_BASE_URL}tournaments/{tournament_id}/current-phase"
     parsed_api_match = get_match(tournament_id)
     return tournament_id, url_tournament, parsed_api_match

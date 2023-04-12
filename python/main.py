@@ -39,9 +39,9 @@ with open(os.path.join(txt_path, 'TeamHome.txt'), 'w') as home_team_name, \
         download_logos(match)
         team1, team2 = asign_team_names(match)
         tournament = match['tournament']['name'].split()
-        name_of_tournament = f'{tournament[1]} {tournament[2]}'
+        name_of_tournament = f'{tournament[0]} {tournament[1]}'
         tournament_name.write(name_of_tournament)
-        big_tournament_name.write(f'{tournament[1]}\n{tournament[2]}')
+        big_tournament_name.write(f'{tournament[0]}\n{tournament[1]}')
         home_team_name.write(team1)
         away_team_name.write(team2)
         match_week.write(week)
