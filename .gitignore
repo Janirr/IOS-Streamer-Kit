@@ -1,2 +1,6 @@
 teams
 .idea
+python/.idea
+python/__pycache__
+python/build
+python/VENV
