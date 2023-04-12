@@ -1,11 +1,13 @@
 import json
+import os
 
 
 def update_json(fixtures, h2h, standings, results, team1, team2):
-    with open("C:\\Streamer kit\\IOS_VTF.json", "r") as jsonFile:
+    delete_unused_json_files()
+    with open("C:\\Streamer kit\\IOS_VTF.json", "r", encoding="utf-8") as jsonFile:
         data = json.load(jsonFile)
     data["name"] = f"{team1}-{team2}"
-    i = 0
+
     for source in data["sources"]:
         if source["name"] == "Fixtures":
             source["settings"]["url"] = fixtures
@@ -20,3 +22,8 @@ def update_json(fixtures, h2h, standings, results, team1, team2):
         json.dump(data, jsonFileWrite)
 
 
+def delete_unused_json_files():
+    directory = r"C:\Streamer kit"
+    for filename in os.listdir(directory):
+        if filename.endswith(".json") and not filename.startswith("IOS_VTF"):
+            os.remove(os.path.join(directory, filename))
