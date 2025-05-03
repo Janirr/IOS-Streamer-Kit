@@ -8,11 +8,23 @@ from displayMatchesForTournament import show_matches_for_tournament
 from createLineup import make_lineups
 from updateJson import update_json
 
+def replace_in_json_file(json_path, find_str, replace_str):
+    with open(json_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    updated_content = content.replace(find_str, replace_str)
+
+    with open(json_path, 'w', encoding='utf-8') as f:
+        f.write(updated_content)
+
+    print(f"Replaced all '{find_str}' with '{replace_str}' in {json_path}")
+
 current_path = os.path.abspath('')
-path_general = current_path[:-7]
+path_general = os.path.dirname(current_path)
+path_general = path_general.replace('\\', '/')
 
 if os.path.abspath('') != 'C:\\Streamer kit\\python':
-    print('Your Streamer kit isn\'t located in C:\\Streamer kit, please change it!')
+    replace_in_json_file(path_general+"\IOS_VTF.json", 'C:/Streamer kit', path_general)
 get_tournaments()
 id_trnmt = input("Enter the id of the tournament: ")
 tournament_id, url_tournament, parsed_api_match = connect_to_rest_api(id_trnmt)
@@ -21,7 +33,6 @@ resp_tournament = requests.get(url_tournament, headers=headers())
 if resp_tournament.status_code == 200:
     json_array_current_tournament = resp_tournament.text
     week = json.loads(json_array_current_tournament)["name"]
-
 else:
     week = ''
 
