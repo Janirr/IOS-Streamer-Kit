@@ -41,7 +41,7 @@ def get_resized_img(img_path, video_size):
 
 
 def download_logos(match_json):
-    path_general = os.path.abspath("")[:-7]
+    path_general = os.path.dirname(os.path.abspath(""))
     # Path to download logos of the teams
     logo_home = match_json["teamHome"]['badgeImage']['mediumUrl']
     logo_away = match_json["teamAway"]['badgeImage']['mediumUrl']
@@ -49,8 +49,8 @@ def download_logos(match_json):
     destination_home = path_general + "/teams/teamHome.png"
     destination_away = path_general + "/teams/teamAway.png"
     # Download them from their url and place them in the C:/Streamer kit/teams
-    download(logo_home, "C:/Streamer kit/teams")
-    download(logo_away, "C:/Streamer kit/teams")
+    download(logo_home, path_general+"/teams")
+    download(logo_away, path_general+"/teams")
     # Get name of the files by looking at the destination starting from the right
     home_logo_name = logo_home.split("/")[-1]
     away_logo_name = logo_away.split("/")[-1]
